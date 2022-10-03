@@ -9,10 +9,10 @@
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <body>
-    <h1>Admin Login</h1>
+    
     <div class="container">
         <div class="row m-5 justify-content-center">
-            
+            <h1 class="m-5">Admin Login</h1>
         {{--   @if(Session::has('login_error'))
             <div class="alert alert-error">
                 {{Session::get('login_error')}}
@@ -44,7 +44,7 @@
                     @endif
                   </div>
                   <button type="submit" class="btn btn-primary mt-3 ">login</button>
-                  <a href="" class="btn btn-secondary">Forget_password</a>
+                  <a href="" class="btn btn-secondary mt-3 ">Forget_password</a>
                 </form>
             </div>
         </div>
