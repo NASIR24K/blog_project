@@ -39,7 +39,7 @@
           <h3 class="card-title">Add Product<a class="btn btn-info btn-sm" href="{{route('admin.product.index')}}" >back</a>
           </h3>
         </div>
-        <form action="{{route('admin.product.update'.$product->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
           @csrf
          
           <div class="card-body">

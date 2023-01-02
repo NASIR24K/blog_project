@@ -62,27 +62,27 @@ class ProductController extends Controller
     }
 
     function update(Request $request, $id){
+    //dd($request->all());
       $request->validate([
         'name'=>'unique:products,name'.$id,
-         'category_id'=>'required',
          'price'=>'required|min:0',
          'stock'=>'required|min:0',
-         'image'=>'required|mimes:jpg,png',
+         'image'=>'mimes:jpg,png',
          'details'=>'required',
+         'category_id'=>'required',
      ]);
      $data= $request->all();
      $data['slug']=Str::slug($request->name);
      $product=Product::where('id', $id)->first();
 
    if($request->hasFile('image')){
-     @unlink('assets/images/products/',$product->id);
+     @unlink('assets/images/products/',$product->image);
      $image=$request->image;
      $img_name=Str::random(6). '.' .$image->getClientOriginalExtension();
-     $image->move('assets/images/products', $img_name);
+     $image->move('assets/images/products/', $img_name);
      $data['image']=$img_name;
    }
    $product->update($data);
-    return back()->withSuccessMessage('Insert Data Successfully');
-
+    return back()->withSuccessMessage('update Data Successfully');
     }
 }
