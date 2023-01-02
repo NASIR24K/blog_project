@@ -62,7 +62,6 @@ class ProductController extends Controller
     }
 
     function update(Request $request, $id){
-       
       $request->validate([
         'name'=>'unique:products,name'.$id,
          'category_id'=>'required',
